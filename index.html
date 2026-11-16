@@ -1,0 +1,71 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d1d">
+  <meta name="description" content="互動式太陽系模擬器，觀察太陽與八大行星的公轉。">
+  <title>太陽系漫遊｜互動式太陽系模擬器</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="starfield" id="starfield" aria-hidden="true"></div>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="太陽系漫遊首頁">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>ORBIT <span class="brand-light">/ 太陽系漫遊</span></span>
+      </a>
+      <span class="live-indicator"><span class="live-dot"></span>互動星圖</span>
+    </header>
+
+    <section class="intro" id="top" aria-labelledby="page-title">
+      <p class="eyebrow">SOLAR SYSTEM · 01</p>
+      <h1 id="page-title">在星軌之間，<span>認識太陽系。</span></h1>
+      <p class="intro-copy">點選行星探索它的特色，或調整時間流速，看看行星如何繞著太陽運行。</p>
+    </section>
+
+    <section class="simulator" aria-label="互動式太陽系模擬器">
+      <div class="controlbar">
+        <div class="control-group">
+          <button class="icon-button" id="play-button" type="button" aria-label="暫停公轉" title="播放或暫停">
+            <svg id="play-icon" viewBox="0 0 20 20" aria-hidden="true"><rect x="5" y="3" width="3.5" height="14" rx="1"></rect><rect x="11.5" y="3" width="3.5" height="14" rx="1"></rect></svg>
+          </button>
+          <span class="control-caption" id="play-label">公轉進行中</span>
+          <span class="control-divider" aria-hidden="true"></span>
+          <button class="text-button" id="reset-button" type="button" title="將行星回到起始位置">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4.4 8A6 6 0 1 1 4 11M4 4v4h4"></path></svg>
+            重設
+          </button>
+        </div>
+        <label class="speed-control" for="speed-slider">
+          <span class="speed-label">時間流速</span>
+          <input id="speed-slider" type="range" min="0.25" max="3" step="0.25" value="1" aria-label="調整公轉速度">
+          <span class="speed-value" id="speed-value">1.0×</span>
+        </label>
+      </div>
+
+      <div class="space-view" id="space-view" aria-label="太陽和八大行星的公轉軌道">
+        <div class="orbit-layer" id="orbit-layer" aria-hidden="true"></div>
+        <div class="sun" id="sun" role="img" aria-label="太陽"><span class="sun-glow"></span><span class="sun-core"></span><span class="sun-label">太陽</span></div>
+        <div class="planet-layer" id="planet-layer"></div>
+        <div class="view-hint"><span class="hint-dot"></span>點選星球，閱讀行星介紹</div>
+        <div class="distance-note">行星軌道與大小為示意比例</div>
+      </div>
+
+      <div class="planet-info" id="planet-info" aria-live="polite">
+        <div class="info-icon" id="info-icon" aria-hidden="true">✦</div>
+        <div class="info-text">
+          <p class="info-kicker" id="info-kicker">YOUR SOLAR SYSTEM</p>
+          <h2 id="info-title">選一顆行星開始探索</h2>
+          <p id="info-description">八大行星各有獨特的色彩、大小和公轉節奏。點選星圖中的任一顆行星，認識它的特徵。</p>
+        </div>
+        <div class="info-fact" id="info-fact"><span>探索提示</span><strong>共有 8 顆行星</strong></div>
+      </div>
+    </section>
+
+    <footer class="page-footer"><span>以好奇心為起點，探索我們的宇宙鄰居。</span><span>太陽系 · 八大行星</span></footer>
+  </main>
+</body>
+</html>
